@@ -2,6 +2,7 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     
+
    
 
     <asp:Label ID="IngresoLabel" runat="server" Text="Ingresar datos" class="d-flex justify-content-center mb-5 text-success text-uppercase fs-1" Font-Bold="true" ></asp:Label>
@@ -11,39 +12,31 @@
 
          <!-- PRODUCTOS -->
         <div class="row">
+             
+            <div class="table-title bg-dark bg-gradient w-100 p-3">
+				<div class="row">
+					<div class="col-sm-6 ">
+						<h2 class="text-light">Administrar <b>Productos</b></h2>
+					</div>
+					<div class="col-sm-6 d-flex justify-content-end">
+                        <button type="button"  class="btn btn-success" data-bs-toggle="modal" data-bs-target="#agregarProductoModal" data-bs-whatever="@mdo">Agregar producto</button>							
+					</div>
+				</div>
+			</div>
 
-             <asp:Label ID="Label1" runat="server" Text="PRODUCTOS" class="d-flex justify-content-center mb-5" Font-Bold="true" ></asp:Label>
+      
 
-           <div class="col-7 ">
+           <div class="d-flex justify-content-center mt-3"">
 
-               <asp:Label ID="idProducLabel" runat="server"  Text="ID"></asp:Label>
-                <asp:TextBox ID="txtIdProduc" runat="server" ReadOnly="true"></asp:TextBox>
-
-                <asp:Label ID="NombreLabel" runat="server" Text="Nombre"></asp:Label>
-                <asp:TextBox ID="txtNombre" runat="server"></asp:TextBox>
-    
-                <asp:Label ID="CategoriaLabel" runat="server" Text="Categoria"></asp:Label>
-                <asp:TextBox ID="txtTipo" runat="server" Width="50px" ></asp:TextBox>
-    
-                <asp:Label ID="LabelPrecio" runat="server" Text="Precio"></asp:Label>
-                <asp:TextBox ID="txtPrecio" runat="server" Width="90px"></asp:TextBox>
-               
-               <asp:Button ID="btnInsertar" runat="server" Text="Insertar" class="btn-success"  OnClick="btnInsertar_Click" />
-               <asp:Button ID="btnGuardar" runat="server" Text="Guardar" class="btn-primary" OnClick="btnGuardar_Click" />
-
-           </div>
-
-           <div class="col-4">
-
-              <asp:GridView ID="gvProductos" runat="server" class="table table-striped table-hover " CellPadding="4" ForeColor="#333333" GridLines="None" Width="517px" Height="143px" OnRowCommand="gvProductos_RowCommand">
+              <asp:GridView ID="gvProductos" runat="server" class="table table-striped table-hover table-bordered" CellPadding="4" ForeColor="#333333" GridLines="None" Width="800px" Height="143px" OnRowCommand="gvProductos_RowCommand">
                   <Columns>
                       <asp:ButtonField Text="x" ButtonType="Image" CommandName="eliminarProducto" HeaderText="Eliminar" ImageUrl="~/img/511562_trash can_delete_trash_wastebin_icon.svg"  >
                       <ControlStyle Height="40px" Width="40px" />
-                      <ItemStyle HorizontalAlign="Center" />
+                      <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                       </asp:ButtonField>
                       <asp:ButtonField ButtonType="Image" CommandName="actualizarProducto" HeaderText="Editar" ImageUrl="~/img/edit.svg" Text="editar">
                       <ControlStyle Height="40px" Width="40px" />
-                      <ItemStyle HorizontalAlign="Center" />
+                      <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                       </asp:ButtonField>
                   </Columns>
                </asp:GridView>
@@ -100,7 +93,7 @@
 
            <div class="col-4">
 
-              <asp:GridView ID="gvProveedor" runat="server" class="table table-striped table-hover" CellPadding="4" ForeColor="#333333" GridLines="None" Width="517px" Height="143px"></asp:GridView>
+              <asp:GridView ID="gvProveedor" runat="server" class="table table-striped table-hover table-bordered" CellPadding="4" ForeColor="#333333" GridLines="None" Width="517px" Height="143px"></asp:GridView>
 
            </div>
     
@@ -112,6 +105,45 @@
     </div>
   
    
+
+    <div class="modal fade" id="agregarProductoModal" tabindex="-1" aria-labelledby="agregarProductoLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="agregarProductoModalTitle">Producto</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      
+            <div class="mb-3">
+                <asp:Label class="form-label" ID="idProducLabel" runat="server"  Text="ID: "></asp:Label>
+                <asp:TextBox class="form-control" ID="txtIdProduc" runat="server" ReadOnly="true"></asp:TextBox>
+            </div>
+
+            <div class="mb-3">
+                <asp:Label class="form-label" ID="NombreLabel" runat="server" Text="Nombre"></asp:Label>
+                <asp:TextBox  class="form-control" ID="txtNombre" runat="server"></asp:TextBox>
+            </div>
+               
+            <div class="mb-3">
+                <asp:Label class="form-label" ID="CategoriaLabel" runat="server" Text="Categoria"></asp:Label>
+                <asp:TextBox class="form-control" ID="txtTipo" runat="server"  ></asp:TextBox>
+            </div>
+               
+            <div class="mb-3">
+                <asp:Label class="form-label" ID="LabelPrecio" runat="server" Text="Precio"></asp:Label>
+                <asp:TextBox class="form-control" ID="txtPrecio" runat="server" ></asp:TextBox>
+            </div>
+ 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+         <asp:Button ID="btnInsertar" runat="server" Text="Insertar" class="btn btn-success"  OnClick="btnInsertar_Click" />
+          <asp:Button ID="btnGuardar" runat="server" Text="Guardar" class="btn btn-warning"  OnClick="btnGuardar_Click" />
+      </div>
+    </div>
+  </div>
+</div>
 
 </asp:Content>
 
