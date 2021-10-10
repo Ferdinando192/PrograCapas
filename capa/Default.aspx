@@ -145,6 +145,45 @@
   </div>
 </div>
 
+    <div class="modal fade" id="agregarProductoModal" tabindex="-1" aria-labelledby="agregarProductoLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="agregarProductoModalTitle">Producto</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      
+            <div class="mb-3">
+                <asp:Label class="form-label" ID="idProducLabel" runat="server"  Text="ID: "></asp:Label>
+                <asp:TextBox class="form-control" ID="txtIdProduc" runat="server" ReadOnly="true"></asp:TextBox>
+            </div>
+
+            <div class="mb-3">
+                <asp:Label class="form-label" ID="NombreLabel" runat="server" Text="Nombre"></asp:Label>
+                <asp:TextBox  class="form-control" ID="txtNombre" runat="server"></asp:TextBox>
+            </div>
+               
+            <div class="mb-3">
+                <asp:Label class="form-label" ID="CategoriaLabel" runat="server" Text="Categoria"></asp:Label>
+                <asp:TextBox class="form-control" ID="txtTipo" runat="server"  ></asp:TextBox>
+            </div>
+               
+            <div class="mb-3">
+                <asp:Label class="form-label" ID="LabelPrecio" runat="server" Text="Precio"></asp:Label>
+                <asp:TextBox class="form-control" ID="txtPrecio" runat="server" ></asp:TextBox>
+            </div>
+ 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+         <asp:Button ID="btnInsertar" runat="server" Text="Insertar" class="btn btn-success"  OnClick="btnInsertar_Click" />
+          <asp:Button ID="btnGuardar" runat="server" Text="Guardar" class="btn btn-warning"  OnClick="btnGuardar_Click" />
+      </div>
+    </div>
+  </div>
+</div>
+
 </asp:Content>
 
 
