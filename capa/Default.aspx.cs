@@ -21,6 +21,9 @@ namespace capa
             btnGuardar.Visible = false;
             txtIdProduc.Visible = false;
             idProducLabel.Visible = false;
+
+           
+
         }
 
         public void listarProductosDataGrid()
@@ -43,22 +46,31 @@ namespace capa
             gvProveedor.DataSource = listaP;
             gvProveedor.DataBind();
 
-
+            txtIdProduc.Text = "";
+            txtNombre.Text = "";
+            txtTipo.Text = "";
+            txtPrecio.Text = "";
             btnInsertar.Enabled = true;
+
+            
+
 
         }
 
         protected void btnInsertar_Click(object sender, EventArgs e)
         {
+           
             iPRODUCTO iproducto = new mPRODUCTO();
             PRODUCTO producto = new PRODUCTO() {
 
                 Nombre = txtNombre.Text,
                 IdCategoria = Convert.ToInt32(txtTipo.Text),
                 Precio = Convert.ToDecimal(txtPrecio.Text)
-             
+              
+         
 
-            };
+        };
+            
 
             iproducto.insertarProducto(producto); 
             listarProductosDataGrid();
